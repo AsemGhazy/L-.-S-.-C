@@ -1,8 +1,8 @@
 /**
  * Line of Sight Calculator
  * Formulas (Chapter 3 - Data Communications):
- *   Metres → d (km)    = 3.57 × √h
- *   Feet   → d (miles) = 1.41 × √h
+ *   Metres → d (km)    = 3.57 × √(kh)
+ *   Feet   → d (miles) = 1.41 × √(kh)
  */
 
   /* ── THEME TOGGLE ──────────────────────────────────── */
@@ -42,12 +42,12 @@ function calculate() {
 
   let d1, d2;
   if (inputUnit === 'metres') {
-    d1 = 3.57 * Math.sqrt(h1);
-    d2 = 3.57 * Math.sqrt(h2);
+    d1 = 3.57 * Math.sqrt((4/3) * h1);
+    d2 = 3.57 * Math.sqrt((4/3) * h2);
     if (outputUnit === 'miles') { d1 *= 0.621371; d2 *= 0.621371; }
   } else {
-    d1 = 1.41 * Math.sqrt(h1);
-    d2 = 1.41 * Math.sqrt(h2);
+    d1 = 1.41 * Math.sqrt((4/3) * h1);
+    d2 = 1.41 * Math.sqrt((4/3) * h2);
     if (outputUnit === 'kilometres') { d1 *= 1.60934; d2 *= 1.60934; }
   }
 
